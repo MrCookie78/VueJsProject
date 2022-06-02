@@ -7,7 +7,7 @@ setInterval(() => {
   compteur.value++;
 }, 1000);
 
-function ResetCompteur(){
+function ResetCompteur() {
   compteur.value = 0;
 }
 </script>
