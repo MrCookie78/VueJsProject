@@ -15,6 +15,10 @@ function Logout() {
 <template>
   <h2 v-if="!user">Hello</h2>
   <h2 v-if="user">Hello {{ user.nom }}</h2>
-  <button v-if="!user" @click="Login()">Connexion</button>
-  <button v-if="user" @click="Logout()">Deconnexion</button>
+  <button v-if="!user" class="btn btn-success" @click="Login()">
+    Connexion
+  </button>
+  <button v-if="user" class="btn btn-danger" @click="Logout()">
+    Deconnexion
+  </button>
 </template>

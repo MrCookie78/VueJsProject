@@ -14,6 +14,13 @@ function ResetCompteur() {
 
 <template>
   <p>Compteur : {{ compteur }}</p>
-  <input type="button" @click="ResetCompteur()" value="Reset Compteur" />
-  <input type="number" v-model="compteur" />
+  <div class="d-flex">
+    <input type="number" class="form-control me-1 w-25" v-model="compteur" />
+    <input
+      type="button"
+      class="btn btn-primary"
+      @click="ResetCompteur()"
+      value="Reset Compteur"
+    />
+  </div>
 </template>

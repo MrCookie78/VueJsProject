@@ -26,27 +26,40 @@ function Delete(id) {
 </script>
 
 <template>
-  <div></div>
-
-  <div>
-    <h2>Liste</h2>
-    <input type="text" placeholder="Name" v-model="name" />
-    <input type="button" @click="Add()" value="Ajouter" />
-
-    <table>
-      <thead>
-        <tr>
-          <th>Id</th>
-          <th>Name</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr v-for="e in list" :key="e.id" @click="Delete(e.id)">
-          <td>{{ e.id }}</td>
-          <td>{{ e.name }}</td>
-        </tr>
-      </tbody>
-    </table>
+  <div class="row">
+    <div class="col-md-6">
+      <h2>Liste</h2>
+      <div class="d-flex">
+        <input
+          type="text"
+          class="form-control me-1"
+          placeholder="Name"
+          v-model="name"
+        />
+        <input
+          type="button"
+          class="btn btn-success"
+          @click="Add()"
+          value="Ajouter"
+        />
+      </div>
+    </div>
+    <div class="col-md-6">
+      <table class="table table-striped">
+        <thead class="table-dark">
+          <tr>
+            <th>Id</th>
+            <th>Name</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr v-for="e in list" :key="e.id" @click="Delete(e.id)">
+            <td>{{ e.id }}</td>
+            <td>{{ e.name }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </div>
 </template>
 
