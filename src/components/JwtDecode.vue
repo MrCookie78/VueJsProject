@@ -27,21 +27,34 @@ function ClearLocal() {
 </script>
 
 <template>
-  <div>
-    <h2>JWT Encoded</h2>
-    <textarea name="jwt" cols="70" rows="6" v-model="jwt_encoded"></textarea>
-    <br />
-    <input type="button" @click="Decode()" value="Decode" />
-    <input
-      type="button"
-      @click="SaveLocal()"
-      value="Sauvegarer dans le local storage"
-    />
-    <input type="button" @click="ClearLocal()" value="Clear Local Storage" />
-  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <h2>JWT Encoded</h2>
+      <textarea name="jwt" cols="70" rows="6" v-model="jwt_encoded"></textarea>
+      <br />
+      <input
+        type="button"
+        class="btn btn-sm btn-info me-1"
+        @click="Decode()"
+        value="Decode"
+      />
+      <input
+        type="button"
+        class="btn btn-sm btn-primary me-1"
+        @click="SaveLocal()"
+        value="Sauvegarer dans le local storage"
+      />
+      <input
+        type="button"
+        class="btn btn-sm btn-secondary me-1"
+        @click="ClearLocal()"
+        value="Clear Local Storage"
+      />
+    </div>
 
-  <div>
-    <h2>JWT Decoded</h2>
-    <p>{{ claim }}</p>
+    <div class="col-md-6">
+      <h2>JWT Decoded</h2>
+      <p>{{ claim }}</p>
+    </div>
   </div>
 </template>
