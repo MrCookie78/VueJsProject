@@ -10,7 +10,11 @@ if (localStorage.getItem("jwt_encoded")) {
 }
 
 function Decode() {
-  claim.value = jose.decodeJwt(jwt_encoded.value);
+  try {
+    claim.value = jose.decodeJwt(jwt_encoded.value);
+  } catch (err) {
+    claim.value = err;
+  }
 }
 
 function SaveLocal() {
