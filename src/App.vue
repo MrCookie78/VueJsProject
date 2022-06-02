@@ -1,9 +1,11 @@
 <script setup>
-import Compteur from "@/components/Compteur.vue";
+import CompteurTime from "@/components/CompteurTime.vue";
+import JwtDecode from "./components/JwtDecode.vue";
 </script>
 <template>
   <h1>Hello World</h1>
-  <Compteur />
+  <CompteurTime />
+  <JwtDecode />
 </template>
 
 <style></style>
