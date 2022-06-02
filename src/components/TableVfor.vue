@@ -2,7 +2,6 @@
 import { ref } from "vue";
 
 const name = ref("");
-const id = ref("");
 const list = ref([
   { id: 0, name: "Alice" },
   { id: 1, name: "Bob" },
@@ -54,7 +53,7 @@ function Delete(id) {
 <style scoped>
 table {
   border-collapse: collapse;
-	margin-top: 10px;
+  margin-top: 10px;
 }
 tr {
   cursor: pointer;
