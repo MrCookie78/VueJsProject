@@ -3,6 +3,7 @@ import CompteurTime from "@/components/CompteurTime.vue";
 import JwtDecode from "@/components/JwtDecode.vue";
 import TableVfor from "@/components/TableVfor.vue";
 import UserAuthentification from "@/components/UserAuthentification.vue";
+import ClassBinding from "./components/ClassBinding.vue";
 </script>
 
 <template>
@@ -16,6 +17,8 @@ import UserAuthentification from "@/components/UserAuthentification.vue";
     <JwtDecode />
     <hr />
     <TableVfor />
+    <hr />
+    <ClassBinding />
   </div>
 </template>
 
