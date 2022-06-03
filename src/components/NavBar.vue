@@ -1,13 +1,20 @@
 <script setup>
 import { useUserStore } from "@/services/userStore";
+import router from "@/router";
+
 const { user, logout } = useUserStore();
+
+function logoutUser() {
+  logout();
+  router.push({ name: "accueil" });
+}
 </script>
 
 <template>
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
       <router-link :to="{ name: 'accueil' }" class="navbar-brand">
-        Accueil <span v-if="user">{{user.name}}</span>
+        Accueil <span v-if="user">{{ user.name }}</span>
       </router-link>
       <button
         class="navbar-toggler"
@@ -70,12 +77,19 @@ const { user, logout } = useUserStore();
         </ul>
         <router-link
           v-if="!user"
+          :to="{ name: 'signup' }"
+          class="btn btn-info me-1"
+        >
+          Inscription
+        </router-link>
+        <router-link
+          v-if="!user"
           :to="{ name: 'login' }"
           class="btn btn-primary"
         >
           Connexion
         </router-link>
-        <button v-if="user" class="btn btn-danger" @click="logout()">
+        <button v-if="user" class="btn btn-danger" @click="logoutUser()">
           Deconnexion
         </button>
       </div>

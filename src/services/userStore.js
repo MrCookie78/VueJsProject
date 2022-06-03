@@ -8,11 +8,14 @@ const user = ref(null);
 
 function login(name) {
   user.value = { name: name };
+  localStorage.setItem("user", JSON.stringify(user.value));
 }
 
 function logout() {
   user.value = null;
+  localStorage.removeItem("user");
 }
+
 export function useUserStore() {
   return {
     user,
