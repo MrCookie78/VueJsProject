@@ -89,6 +89,15 @@ function logoutUser() {
         >
           Connexion
         </router-link>
+
+        <router-link
+          v-if="user"
+          :to="{ name: 'moncompte' }"
+          class="btn btn-secondary me-1"
+        >
+          Mon Compte
+        </router-link>
+
         <button v-if="user" class="btn btn-danger" @click="logoutUser()">
           Deconnexion
         </button>

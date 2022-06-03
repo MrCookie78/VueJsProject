@@ -6,8 +6,8 @@ const user = ref(null);
  * TODO : Vérifier dans le local storage si il n'y a pas deja un user
  */
 
-function login(name) {
-  user.value = { name: name };
+function UserLogin(name, token) {
+  user.value = { name: name, token: token };
   localStorage.setItem("user", JSON.stringify(user.value));
 }
 
@@ -19,7 +19,7 @@ function logout() {
 export function useUserStore() {
   return {
     user,
-    login,
+    UserLogin,
     logout,
   };
 }

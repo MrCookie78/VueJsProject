@@ -1,21 +1,52 @@
 <script setup>
 import { ref } from "vue";
-import { useUserStore } from "@/services/userStore";
 import router from "@/router";
-const { login } = useUserStore();
-const name = ref("");
+import { useAPI } from "@/services/api";
 
-function loginUser(name) {
-  login(name);
-  router.push({ name: "accueil" });
+const { login } = useAPI();
+
+const email = ref("");
+const password = ref("");
+const res = ref(null);
+
+async function loginUser() {
+  res.value = await login(email.value, password.value);
+  if (res.value === true) router.push({ name: "accueil" });
 }
 </script>
 
 <template>
-  <div class="row justify-content-center">
-    <input class="col-md-2 me-1" type="text" v-model="name" />
-    <button class="btn btn-success col-md-2" @click="loginUser(name)">
-      Connexion
-    </button>
+  <h1 class="text-center">Connexion</h1>
+  <div class="row justify-content-center mt-5">
+    <div class="col-md-4">
+      <div class="mb-1">
+        <label>Email</label>
+        <input
+          class="form-control mb-1"
+          type="email"
+          v-model="email"
+          placeholder="email"
+          required
+        />
+      </div>
+
+      <div class="mb-1">
+        <label>Email</label>
+        <input
+          class="form-control mb-1"
+          type="password"
+          v-model="password"
+          placeholder="Mot de passe"
+          required
+        />
+      </div>
+
+      <div v-if="res" class="alert alert-danger my-2">{{ res }}</div>
+    </div>
+    <div class="row justify-content-center mt-1">
+      <div class="col-md-4 text-end">
+        <button class="btn btn-success" @click="loginUser()">Connexion</button>
+      </div>
+    </div>
   </div>
 </template>

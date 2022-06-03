@@ -7,6 +7,7 @@ import UserVif from "@/components/UserVif.vue";
 import ClassBinding from "@/components/ClassBinding.vue";
 import UserLogin from "@/components/UserLogin.vue";
 import InscriptionForm from "@/components/InscriptionForm.vue";
+import MonCompte from "@/components/MonCompte.vue";
 
 import { useUserStore } from "@/services/userStore";
 const { user } = useUserStore();
@@ -28,7 +29,7 @@ const router = createRouter({
       path: "/jwt",
       name: "jwt",
       component: JwtDecode,
-      beforeEnter: function (to, from) {
+      beforeEnter: function () {
         if (!user.value) return { name: "accueil" };
       },
     },
@@ -36,7 +37,7 @@ const router = createRouter({
       path: "/vfor",
       name: "vfor",
       component: TableVfor,
-      beforeEnter: function (to, from) {
+      beforeEnter: function () {
         if (!user.value) return { name: "accueil" };
       },
     },
@@ -44,7 +45,7 @@ const router = createRouter({
       path: "/vif",
       name: "vif",
       component: UserVif,
-      beforeEnter: function (to, from) {
+      beforeEnter: function () {
         if (!user.value) return { name: "accueil" };
       },
     },
@@ -52,7 +53,7 @@ const router = createRouter({
       path: "/classBinding",
       name: "classBinding",
       component: ClassBinding,
-      beforeEnter: function (to, from) {
+      beforeEnter: function () {
         if (!user.value) return { name: "accueil" };
       },
     },
@@ -60,7 +61,7 @@ const router = createRouter({
       path: "/login",
       name: "login",
       component: UserLogin,
-      beforeEnter: function (to, from) {
+      beforeEnter: function () {
         if (user.value) return { name: "accueil" };
       },
     },
@@ -68,8 +69,16 @@ const router = createRouter({
       path: "/signup",
       name: "signup",
       component: InscriptionForm,
-      beforeEnter: function (to, from) {
+      beforeEnter: function () {
         if (user.value) return { name: "accueil" };
+      },
+    },
+    {
+      path: "/me",
+      name: "moncompte",
+      component: MonCompte,
+      beforeEnter: function () {
+        if (!user.value) return { name: "accueil" };
       },
     },
   ],
